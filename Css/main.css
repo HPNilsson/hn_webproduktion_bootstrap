@@ -1,0 +1,472 @@
+body {
+	position: relative;
+	background-size: cover;
+	background-color: #1f1f1f;
+	font-family: 'Roboto' sans-serif;
+	color: white;
+	line-height: 150%;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h1,h2,h3,a {
+	font-family: 'Francois One';
+	color: orange;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+	margin: 15px auto;
+	text-decoration: underline;
+	text-align: center;
+}
+
+h1 {
+	font-size: 45px;
+
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 35px;
+	text-align: center;
+	text-decoration: underline;
+}
+
+p {
+	margin: 15px;
+	font-size: 20px;
+}
+
+.wrapper {
+	position: fixed;
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	background-color: transparent;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+
+nav, footer {
+	z-index: 6;
+	background-color: transparent;
+	color: white;
+}
+
+#header  {
+	display: block;
+	background-image: url("../img/Tenta1 banner 03.png");
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 260px;
+	margin: -40px auto -16%;
+	background-color: transparent;
+	z-index: -3;
+}
+
+nav {
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	margin: 15.5% auto 10px auto;
+}
+
+header nav ul ul {
+	position: absolute;
+}
+
+header nav ul ul ul {
+	top: 0;
+	right: 100%;
+}
+
+header nav ul ul {
+	display:none;
+}
+
+header nav li:hover > ul {
+	display: block;
+}
+
+nav li {
+	position: relative;
+	display: inline;
+	width: 100%;
+	height: 25%;
+}
+
+a, span{ 
+ color: orange;
+ text-decoration: none;
+}
+
+span {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.button {
+	display: inline-block;
+	height: 100%;
+	background-color: #3b3b3b;
+	font-weight: bold;
+	font-size: 25px;
+	margin: 0 0%;
+	padding: 1% 1%;
+}
+
+.button:hover {
+	background-color: rgba(123,17,19,0.9);
+}
+
+.active {
+	text-decoration: underline;
+	background-color: rgba(123,17,19,0.9)
+}
+
+header nav li ul .button {
+	height: 100%;
+	width: 100%;
+	margin: 0 15% 0 10%;
+	border: 1px solid black;
+}
+
+header nav li ul .button .active {
+	background-color: rgba(123,17,19,0.9);
+}
+
+footer {
+	position: static;
+	width: 70%;
+	left: 10%;
+	border: 5px solid black;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #3b3b3b;
+}
+
+footer ul li {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#top {
+	position: fixed;
+	bottom: 1%;
+	right: 20px;
+}
+
+#frontimage, #frontbox, .featurephoto, .featureinfo {
+	background-color: #3b3b3b;
+	min-height: 360px;
+}
+
+#frontimage {
+	
+	display: inline-block;
+	height: 60%;
+	width: 65%;
+	border: 1px solid black;
+	margin: 0 0 0 2%;
+	float: left;
+	background-image: url("../img/gurren_lagann_front.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+#frontbox {
+	display: inline-block;
+	border: 1px solid black;
+	width: 30%;
+	height: 60%;
+	margin: 0 2% 0 0;
+	float: right;
+	background-color: #3b3b3b;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.news {
+	margin: 1% auto;
+	width: 90%;
+	border: 1px solid black;
+	background-color: #3b3b3b;
+	padding-bottom: 5px;
+}
+
+.featurewrapper {
+	position: absolute;
+	width: 100%;
+	height: 70%;
+	margin: 0 auto;
+	z-index: -2;
+}
+
+.featurephoto {
+	display: inline-block;
+	margin: 0 5% 0 5%;
+	width: 90%;
+	height: 100%;
+	border: 1px solid black;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.augimg {
+	background-image: url("../img/macross.jpg");
+}
+
+.aug2img {
+	background-image: url("../img/neongenesis.jpg");
+}
+
+.aug3img {
+	background-image: url("../img/lelouche.jpg");
+}
+
+.aug4img {
+	background-image: url("../img/Tengen_Group.jpg")
+}
+
+
+.julimg {
+	background-image: url("../img/Mirai1.jpg");
+}
+
+.jul2img {
+	background-image: url("../img/bakemonogatari3.jpg");
+}
+
+.jul3img {
+	background-image: url("../img/beck1.jpg");
+}
+.jul4img {
+	background-image: url("../img/Last2.jpeg");
+}
+
+.junimg {
+	background-image: url("../img/naruto.jpg");
+}
+
+.jun2img {
+	background-image: url("../img/Hunter.jpg");
+}
+
+.jun3img {
+	background-image: url("../img/bleach.jpg");
+}
+
+.jun4img {
+	background-image: url("../img/attack.jpg");
+}
+
+.featureinfo {
+	position: relative;
+	display: inline-block;
+	width: 90%;
+	left: 5%;
+	margin: 0 0 5px 0;
+	background-color: #3b3b3b;
+	border: 1px solid black;
+}
+
+/*Quiz Css*/
+
+form {
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	width: 90%;
+	left: 5%;
+	margin: 0 0 5px 0;
+	background-color: #3b3b3b;
+	border: 1px solid black;
+}
+
+.result {
+  text-align:center;
+  padding-top:20px;
+  position:relative;
+  width:100%;
+  height:100%;
+  background:#3b3b3b;
+}
+
+.result h3 {
+	color: white;
+	text-decoration: none;
+}
+
+.result .test-again {
+  position:relative;
+  top:-50px;
+  background:#3b3b3b;
+  height:70px;
+}
+
+.result .test-again input {
+   font-size:30px;
+   margin-top:30px;
+}
+
+.result .imgs {
+  display:inline;
+
+}
+
+.result img {
+  width:50%;
+  min-height: 346px;
+  min-width: 220px;
+  margin: 0 auto 20px;
+}
+
+.result {
+  display:none;
+}
+
+.result .Yoko, .result .Simon, .result .Kamina {
+  display:none;
+}
+
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ .result {
+  display:block;
+}
+
+input.Kamina:checked ~ input.Kamina:checked ~ .result .Kamina {
+  display:block;
+}
+
+input.Yoko:checked ~ input.Yoko:checked ~ .result .Yoko {
+  display:block;
+}
+
+input.Simon:checked ~ input.Simon:checked ~ .result .Simon {
+  display:block;
+}
+
+
+@media screen and (max-width: 980px) {
+	
+	
+	p {
+		text-align: center;
+	}
+
+	#header {
+		background-size: contain;
+		margin: -50px auto -150px;
+	}
+
+	.wrapper {
+		width: 100%;
+	}
+
+	#frontimage {
+		display: none;
+		margin-right: auto;
+		margin-left: auto;
+		float: none;
+		height: 50%;
+		width: 90%;
+		left: 5%;
+	}
+
+		#frontbox h3 {
+		margin-top: 15%;
+	}
+
+	#frontbox {
+		display: block;
+		float: none;
+		height: 50%;
+		width: 90%;
+		margin: 0 auto;
+		left: 5%;
+		background-image: url("../img/gurren_lagann_front.jpg");
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
+	footer ul li {
+		font-size: 10px;
+		font-weight: normal;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	#header {
+		margin: -105px auto -140px;
+	}
+
+	#frontbox {
+		background-image: url("../img/Gurren logo.jpg");
+	}
+
+	.news h2 {
+		margin: 5% auto;
+	}
+
+	.augimg {
+		background-image: url("../img/macross480.png");
+	}
+
+	.aug2img {
+		background-image: url("../img/eva01.png");
+	}
+
+	.aug3img {
+		background-image: url("../img/geass480.png");
+	}
+
+	.aug4img {
+		background-image: url("../img/gurren4802.png")
+	}
+
+	.julimg {
+		background-image: url("../img/mirai480.png");
+	}
+
+	.jul2img {
+		background-image: url("../img/bakemono2.png");
+	}
+
+	.jul3img {
+		background-image: url("../img/Beck480.png");
+	}
+
+	.jul4img {
+		background-image: url("../img/exile480.png");
+	}
+
+	.junimg {
+		background-image: url("../img/naruto.png");
+	}
+
+	.jun2img {
+		background-image: url("../img/hunter480.png");
+	}
+
+	.jun3img {
+		background-image: url("../img/bleach480.png");
+	}
+
+	.jun4img {
+		background-image: url("../img/attack480.png");
+	}
+
+}
