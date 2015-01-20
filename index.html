@@ -3,15 +3,19 @@
 	<head>
 		<title>Animestuff.web</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
   <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<!-- <link rel="stylesheet" href="./Css/main.css" -->>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="Css/bootstrap.css">
+		<link rel="stylesheet" href="Css/main.css">
 		<link href='http://fonts.googleapis.com/css?family=Francois+One|Roboto:400,300' rel='stylesheet' type='text/css'>
 	
 	</head>
 	<body>
-		<header class="container">
+		<header class="container" id="top">
+			<div><h1 class="text-center">BANNER</h1></div>
+
 			<div class="container-fluid">
 				<nav class="navbar navbar-default">
 					<ul class="nav navbar-nav">
@@ -72,44 +76,72 @@
 								</li>
 							</ul>
 						</li>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="admin.html" >Admin Page~u!</a>
+							</li>
+					</ul>
 					</ul>
 				</nav>
 			</div>	
 		</header>
 		
+<!-- 
+			<div class="container">
+				<div class="row">
+					<div class="sm col-md-5">
+					<a href="./Archive/aug4.html">
+						<section id="frontimage" title="Featured Article: Tengen Toppa Gurren Lagann"></section>
+					</a>
+				</div>
+				</div>
+			</div> -->
 
+		<div class="container">
+				<div class="row">
+					<div class="sm col-md-6">
+
+						<article class="">
+							<h2 class="text-center">Mecha-Month!</h2>
+							<p>This month we bring you articles about some of our favourite mecha-series, both new and old. </p>
+							<p>This week:</p>
+							<p><a href="./Archive/Aug4.html">Tengen Toppa Gurren Lagann >></a></p>
+							<img src="./img/Gurren_logo.jpg" class="col-md-offset-1">
+						</article>
+					</div>
 				
-				<a href="./Archive/aug4.html">
-					<section id="frontimage" title="Featured Article: Tengen Toppa Gurren Lagann"></section>
-				</a>
-
-
-
-				<article id="frontbox">
-					<h2>Mecha-Month!</h2>
-					<p>This month we bring you articles about some of our favourite mecha-series, both new and old. </p>
-					<p>This week:</p>
-					<p><a href="./Archive/Aug4.html">Tengen Toppa Gurren Lagann >></a></p>
-				</article>
+					<div class="container">
+						<div class="col-md-5 col-md-offset-1">	
+							<article>
+								<h2 class="text-center">News</h2>
+								
+									<p><span>Site updates</span> dolor sit amet. Pastry caramels halvah marshmallow toffee jujubes. Icing cheesecake brownie brownie gummi bears topping cotton candy. Chocolate cake marshmallow macaroon fruitcake chocolate cake. Halvah croissant apple pie tiramisu lemon drops cheesecake gummi bears tiramisu. Danish jelly-o carrot cake applicake. Lollipop carrot cake macaroon macaroon gummi bears lemon drops. Gingerbread gummi bears powder powder jujubes chocolate cake sweet. Croissant wafer gingerbread ice cream. Candy soufflé croissant cookie caramels unerdwear.com. Icing biscuit tiramisu pastry sesame snaps brownie. Apple pie croissant dragée applicake jelly fruitcake cotton candy. Topping cake sweet applicake liquorice cotton candy marzipan. Bonbon gummies jelly beans lollipop jelly beans dessert pastry.</p>
 			
+							</article>
+						</div>
+				</div>
+			</div>
+		</div>
 
-				<div class="clearfix"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div classs="shape">
+				</div>
+			</div>
+		</div>
 
-				<article class="news" >
-					<h2 id="Newsfeed">News</h2>
-					<p><span>Site updates</span> dolor sit amet. Pastry caramels halvah marshmallow toffee jujubes. Icing cheesecake brownie brownie gummi bears topping cotton candy. Chocolate cake marshmallow macaroon fruitcake chocolate cake. Halvah croissant apple pie tiramisu lemon drops cheesecake gummi bears tiramisu. Danish jelly-o carrot cake applicake. Lollipop carrot cake macaroon macaroon gummi bears lemon drops. Gingerbread gummi bears powder powder jujubes chocolate cake sweet. Croissant wafer gingerbread ice cream. Candy soufflé croissant cookie caramels unerdwear.com. Icing biscuit tiramisu pastry sesame snaps brownie. Apple pie croissant dragée applicake jelly fruitcake cotton candy. Topping cake sweet applicake liquorice cotton candy marzipan. Bonbon gummies jelly beans lollipop jelly beans dessert pastry.</p>
-				</article>
-		
-
-				<footer>
-					<ul>
+			<div class="container">
+				<footer class="container-fluid">	
+					<address class="row col-md-12">
+						<ul class="list-inline">
 						<li>Email: Animestuff@email.com</li>
 						<li>Adress: 404 Kamina City</li>
-						<li><a href="#header">Back To Top</a></li>
+						<li><a href="#top">Back To Top</a></li>
+						<li><abbr title="Phone">P:</abbr> (666) 666-9666</li>
 					</ul>
-				</footer>
-			
-				<a href="#header" id="top">Top</a>		
+				</address>
+			</footer>
 		</div>
+
 	</body>
 </html>
