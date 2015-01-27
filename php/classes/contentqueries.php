@@ -12,12 +12,15 @@ class ContentQueries extends PDOHelper {
       $page_data = array(
         ":title" => "String",
         ":body" => "String",
-        ":user_id" => int,
+        
       );
     */
     //adding user_id before insert
     $page_data[":user_id"] = $this->user_info["user_id"];
-
+    $page_path = $page_data[":path"];
+    unset($page_data[":path"]);
+    $menu_data = $page_data["menuData"];
+    unset($page_data["menuData"]);
     $sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
     //since we are using prepared SQL statements, 
     //SQL and data is sent separately to the query method
