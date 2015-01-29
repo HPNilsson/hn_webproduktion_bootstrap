@@ -17,3 +17,4 @@ function insertNewPage(adminFormData) {
 		}
 	});
 }
+

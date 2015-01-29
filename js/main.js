@@ -16,7 +16,6 @@ $(document).ready(function() {
 		};
 
 		insertNewPage(adminFormData);
-	
 
 		this.reset();
 		return false;
