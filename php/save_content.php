@@ -2,7 +2,7 @@
 
 include_once("autoloader.php");
 
-$cq = New ContentQueries("127.0.0.1","hn_webproduktion","root","mysql");
+$cq = New ContentQueries( "127.0.0.1", "hn_webproduktion", "root", "mysql");
 
 //save content if told to do so (by receiving correct AJAX data)
 // om page_data finns, dvs datan från adminFormen, 
