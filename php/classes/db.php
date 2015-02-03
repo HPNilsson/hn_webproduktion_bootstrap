@@ -11,7 +11,7 @@ class DB {
 	 private function __construct() {
 	 	try {
 	 		$this->_pdo = new PDO('mysql:host=' . config::get('mysql/host') . ';dbname=' . config::get('mysql/db'), config::get('mysql/username'),config::get('mysql/password'));
-	 			echo 'Connected';
+	 			echo 'Connected to Db! <br>';
 	 	}	catch(PDOException $e) {
 	 			die($e->getMessage());
 	 	}
@@ -71,6 +71,36 @@ class DB {
 			return $this->action('DELETE', $table, $where);
 	 }
 
+	 public function insert($table, $fields = array()) {
+	 	if(count($fields)) {
+	 		$keys = array_keys($fields);
+	 		$values = null;
+	 		$x = 1;
+
+	 		foreach($fields as $fields) {
+	 			$values .= '?';
+	 			if($x < count($fields)) {
+	 				$values .= ',';
+	 			}
+	 			$x++;
+	 		}
+
+	 		die($values);
+	 		
+	 		$sql = "INSERT INTO users (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+	 	
+	 		if(!$this->query($sql, $fields)->error()) {
+	 			return true;
+	 		}
+	 	}
+	 	return false;
+	 }
+	 public function results(){
+	 	return $this ->_results;
+	 }
+	 // public function first(){
+	 // 	return $this->results()[0];
+	 // }
 	 public function error() {
 	 	return $this->_error;
 	 }

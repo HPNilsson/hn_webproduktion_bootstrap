@@ -2,10 +2,15 @@
 require_once 'core/init.php';
 
 
-$user = DB::getInstance()->query("SELECT username FROM users WHERE username = ?", array('Henriku'));
+$userInsert = DB::getInstance()->insert('users', array(
+	'username' => 'Bobbusnotwo',
+	'password' => 'password',
+	'salt' => 'salt'
+	));
 
-if($user->error()){
-	echo ' no useaaah';
-} else {
-			echo " okayyyooo!";
+if($userInsert) {
+	echo " inserted a user!";
+}
+else {
+	echo " something whent wrong with user insert :(";
 }

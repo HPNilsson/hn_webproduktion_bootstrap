@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-
+		$("#admin").click(function() {
+			$('.createPageForm').toggle();
+		});
 
   $('li li a').addClass("btn btn-default");
  
@@ -20,8 +22,10 @@ $(document).ready(function() {
 		this.reset();
 		return false;
 	});
-});
 
+
+
+});
 
 
 
