@@ -2,15 +2,15 @@
 require_once 'core/init.php';
 
 
-$userInsert = DB::getInstance()->insert('users', array(
+$userInsert = DB::getInstance()->update('users', 2, array(
 	'username' => 'Bobbusnotwo',
-	'password' => 'password',
+	'password' => 'password2',
 	'salt' => 'salt'
 	));
 
 if($userInsert) {
-	echo " inserted a user!";
+	echo "<br> Inserted a user!";
 }
 else {
-	echo " something whent wrong with user insert :(";
+	echo "<br> Something went wrong with user insert :(";
 }

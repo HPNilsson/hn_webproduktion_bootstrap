@@ -17,6 +17,11 @@ footer {
   height: 50px;
   background: #ddf;
 }
+
+.btn {
+	margin-top: 7px;
+}
+
 /*//less example*/
 /*Nested rules*/
 /*
