@@ -1,7 +1,16 @@
 $(document).ready(function() {
 
+		getMenuLinks();
+
+		$(".menuLinkFields").hide();
+
 		$("#admin").click(function() {
 			$('.createPageForm').toggle();
+		});
+
+		$(".addtomenu").click(function() {
+			$(".menuLinkFields").toggle();
+
 		});
 
   $('li li a').addClass("btn btn-default");
@@ -16,6 +25,13 @@ $(document).ready(function() {
 			":path": $(this).find("#page_url").val(),
 			":body": $(this).find("#page_body").val()
 		};
+		if($(".addtomenu").is(":checked")) {
+			adminFormData.menuData = {
+			":title": $(this).find("#menu_title").val(),
+			":path": $(this).find("#page_url").val(),
+			":plid": $(this).find(".menuSelect select :selected").val()
+			};
+		}
 
 		insertNewPage(adminFormData);
 

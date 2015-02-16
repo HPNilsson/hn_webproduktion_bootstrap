@@ -11,7 +11,18 @@ class ContentQueries extends PDOHelper {
     $sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
     //since we are using prepared SQL statements, 
     //SQL and data is sent separately to the query method
-    return $this->query($sql, $page_data);
+    $this->query($sql, $page_data);
+
+    if($menu_data) {
+      $this->saveMenuLink($menu_data);
+    }
+    return true;
+  }
+
+  public function saveMenuLink($menu_data) {
+    $menu_data[":plid"] = $menu_data[":plid"] ? $menu_data[":plid"] : null;
+    $sql = "INSERT INTO menu_links (title, path, plid) VALUES (:title, :path, :plid)";
+    return $this -> query($sql,$menu_data);
   }
 
   public function getAllPages() {
@@ -19,6 +30,11 @@ class ContentQueries extends PDOHelper {
     //since we are using prepared SQL statements, 
     //SQL and data is sent separately to the query method
     return $this->query($sql);
+  }
+
+  public function getAllMenuLinks() {
+    $sql = "SELECT * FROM menu_links order by weight desc";
+    return $this ->query($sql);
   }
 
   public function searchForPages($search_param) {
