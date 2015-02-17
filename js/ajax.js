@@ -18,14 +18,36 @@ function insertNewPage(adminFormData) {
 	});
 }
 
-function getMenuLinks() {
+function getPageFromUrl(pageUrl) {
+	$.ajax({
+		url: "php/contentqueries.php",
+		type: "get",
+		dataType: "json",
+		data: {
+			"path" : pageUrl
+		},
+		success: function(data) {
+			console.log("Getting page from url yeah! You go url page thing! ", data);
+		},
+		error: function(data) {
+			console.log("error getting page from url.. damn ", data.responseText);
+		}
+	});
+}
+
+function getMenuLinks(whichMenu) {
 	$.ajax({
 		url: "php/get_menulinks.php",
 		type: "post",
 		dataType: "json",
 		success: function(data) {
 			console.log("getting menu links! Yay! ", data);
-			createSelect(data);
+			if (whichMenu == "select") {
+				createSelect(data);
+			}
+			else {
+				createMainMenu(data);
+			}
 		},
 		error: function(data) {
 			console.log("error getting menu links... darn ", data.responseText);
@@ -45,4 +67,33 @@ function createSelect(data){
 		}
 	}
 	$('.menuSelect').html(selectHtml);
+}
+
+function createMainMenu(data) {
+	var mainMenuHtml = $('<ul class="nav navbar-nav"/>');
+
+	while (data.length > 0) {
+		var linkItem = data[0];
+		var parentId = linkItem.plid;
+		var htmlParent = mainMenuHtml.find('[data-mlid="'+parentId+'"]');
+		if (parentId && htmlParent.length === 0) {
+			data.push(data.shift());
+			continue;
+		}
+		else {
+			if (!parentId) {
+				mainMenuHtml.append('<li data-mlid="'+linkItem.mlid+'"><a href="'+linkItem.path+'">'+linkItem.title+'</a></li>');
+			}
+			else {
+				if (htmlParent.children('ul').length === 0) {
+					htmlParent.addClass('dropdown');
+					htmlParent.append('<ul class="dropdown-menu"/>');
+				}
+				mainMenuHtml.find('[data-mlid="'+parentId+'"] > ul').append('<li data-mlid="'+linkItem.mlid+'"><a href="'+linkItem.path+'">'+linkItem.title+'</a></li>');
+			}
+			data.shift();
+		}
+	}
+	$('header nav .navbar-nav').remove();
+	$('header nav').append(mainMenuHtml);
 }

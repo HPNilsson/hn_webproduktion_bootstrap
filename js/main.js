@@ -1,12 +1,11 @@
 $(document).ready(function() {
-
-		getMenuLinks();
-
+		pushPopListeners();
+		
 		$(".menuLinkFields").hide();
 
-		$("#admin").click(function() {
+		/*$("#admin").click(function() {
 			$('.createPageForm').toggle();
-		});
+		});*/
 
 		$(".addtomenu").click(function() {
 			$(".menuLinkFields").toggle();

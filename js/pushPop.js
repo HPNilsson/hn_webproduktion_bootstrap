@@ -8,9 +8,26 @@
 
 //function to show/hide sections
 function showPage(pageUrl) {
+  console.log("showPage url: ", pageUrl);
+  getMenuLinks();
 
-console.log();
+  if (pageUrl == "admin-form") {
+    getMenuLinks("select");
+  } else {
+    //get page data from url
+    //getPageFromUrl(pageUrl); //your new ajax
 
+    // What tha fudge am I doing? Pls, pls hlep.
+    getPageByUrl(pageUrl);
+    pageUrl = "page";
+    console.log("we did a thing in the else in showPage pushpop ");
+    //if we are getting a page from DB, change url to "page"
+    //pageUrl = "page";
+  }
+
+
+  $("body > .container").not("header").hide();
+  $("#"+pageUrl).parent(".container").show();
 }
 
 

@@ -44,6 +44,12 @@ class ContentQueries extends PDOHelper {
     //SQL and data is sent separately to the query method
     return $this->query($sql, $search_param);
   }
+
+  public function getPageByUrl($url) {
+    //url = array(":path" => "adsdasd")
+    
+    $sql = "SELECT pages.* FROM url_alias, pages WHERE url_alias.path = :path && pages.pid = url_alias.pid;";
+  }
 }
 
 
