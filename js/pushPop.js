@@ -17,8 +17,8 @@ function showPage(pageUrl) {
     //get page data from url
     //getPageFromUrl(pageUrl); //your new ajax
 
-    // What tha fudge am I doing? Pls, pls hlep.
-    getPageByUrl(pageUrl);
+    
+    getPageFromUrl(pageUrl);
     pageUrl = "page";
     console.log("we did a thing in the else in showPage pushpop ");
     //if we are getting a page from DB, change url to "page"
@@ -78,7 +78,7 @@ function pushPopListeners() {
     var l = location.href;
     //might need to change this
     var pageName = l.substring(l.lastIndexOf("/")+1);
-
+alert(pageName);
     // if no pageName set pageName to false
     pageName = pageName || false;
     console.log("pageName: ", pageName);

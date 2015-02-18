@@ -1,16 +1,16 @@
 $(document).ready(function() {
 		pushPopListeners();
 		
-		$(".menuLinkFields").hide();
+		// $(".menuLinkFields").hide();
 
-		/*$("#admin").click(function() {
+		$("#admin").click(function() {
 			$('.createPageForm').toggle();
-		});*/
-
-		$(".addtomenu").click(function() {
-			$(".menuLinkFields").toggle();
-
 		});
+
+		// $(".addtomenu").click(function() {
+		//	$(".menuLinkFields").toggle();
+
+		// });
 
   $('li li a').addClass("btn btn-default");
  

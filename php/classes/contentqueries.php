@@ -13,6 +13,17 @@ class ContentQueries extends PDOHelper {
     //SQL and data is sent separately to the query method
     $this->query($sql, $page_data);
 
+    $sql2 = "SELECT pid FROM pages ORDER BY pid DESC LIMIT 1;";
+    $result = $this->query($sql2);
+    $pid = $result[0]["pid"];
+
+    $url_data = array(
+      ":path" => $page_path,
+      ":pid" => $pid,
+    );
+
+    $this->saveNewAlias($url_data);
+
     if($menu_data) {
       $this->saveMenuLink($menu_data);
     }
@@ -48,7 +59,14 @@ class ContentQueries extends PDOHelper {
   public function getPageByUrl($url) {
     //url = array(":path" => "adsdasd")
     
-    $sql = "SELECT pages.* FROM url_alias, pages WHERE url_alias.path = :path && pages.pid = url_alias.pid;";
+    $sql = "SELECT pages.*, users.name AS author FROM url_alias, pages, users WHERE url_alias.path = :path && pages.pid = url_alias.pid && users.uid = pages.user_id;";
+
+    return $this->query($sql, $url);
+  }
+
+  public function saveNewAlias($url_data) {
+    $sql = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid);";
+    return $this->query($sql, $url_data);
   }
 }
 
