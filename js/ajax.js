@@ -60,9 +60,9 @@ function createMainMenu(data) {
 	}
 
 	if(!staticMenuItems){staticMenuItems = $('header nav .navbar-nav').children('li');}
-	$('header nav .navbar-nav').remove();
-	$('header nav').append(mainMenuHtml);
-	$('header nav .navbar-nav').append(staticMenuItems);
+	$('header nav .navbar-collapse .navbar-nav').not(".navbar-right").remove();
+	$('header nav .navbar-collapse').prepend(mainMenuHtml);
+	//$('header nav .navbar-nav').append(staticMenuItems);
 
 	console.log(mainMenuHtml.children().length);
 }
@@ -79,9 +79,9 @@ function getPageFromUrl(pageUrl) {
 		success: function(data) {
 			console.log("Getting page from url yeah! You go url page thing! ", data);
 			$("section#page").html('');
-			$("section#page").append('<article class="pageMaterial"></article>');
+			$("section#page").append('<article class="pageMaterial col-sm-10 col-sm-offset-2 "></article>');
 			$('section#page').show();
-			$('.pageMaterial').append('<h3>'+data[0]['title']+'</h3>'+'<p>'+data[0]['body']+'</p>'+'<h4>'+data[0]['author']+'</h4>'+'<time>Created '+data[0]['created']+'</time>');
+			$('.pageMaterial').append('<h3 class="text-center">'+data[0]['title']+'</h3>'+'<div><p class="text-center">'+data[0]['body']+'</p></div>'+'<h4>'+data[0]['author']+'</h4>'+'<time>Created '+data[0]['created']+'</time>');
 			
 
 			// $.each(pageUrl, );
@@ -94,6 +94,27 @@ function getPageFromUrl(pageUrl) {
 		},
 		error: function(data) {
 			console.log("error getting page from url.. damn ", data.responseText);
+		}
+	});
+}
+
+
+function getMenuImages(whichMenuImage) {
+$.ajax({
+		url: "php/get_menuimages.php",
+		type: "post",
+		dataType: "json",
+		success: function(data) {
+			console.log("getting menu images! Yay! ", data);
+			if (whichMenuImage == "select") {
+				createSelect(data);
+			}
+			else {
+				createMainMenu(data);
+			}
+		},
+		error: function(data) {
+			console.log("error getting menu images... dammit ", data.responseText);
 		}
 	});
 }

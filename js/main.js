@@ -24,13 +24,16 @@ $(document).ready(function() {
 			":path": $(this).find("#page_url").val(),
 			":body": $(this).find("#page_body").val()
 		};
-		if($(".addtomenu").is(":checked")) {
+		
 			adminFormData.menuData = {
 			":title": $(this).find("#menu_title").val(),
 			":path": $(this).find("#page_url").val(),
 			":plid": $(this).find(".menuSelect select :selected").val()
 			};
-		}
+		
+			adminFormData.menuImageData = {
+				":iid": $(this).find("").val(),
+			};
 
 		insertNewPage(adminFormData);
 

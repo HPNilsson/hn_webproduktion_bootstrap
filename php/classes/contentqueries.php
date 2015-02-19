@@ -48,6 +48,11 @@ class ContentQueries extends PDOHelper {
     return $this ->query($sql);
   }
 
+  public function getAllImages() {
+    $sql = "SELECT * FROM images";
+    return $this ->query($sql);
+  }
+
   public function searchForPages($search_param) {
     $search_param = array(":search_param" => "%".$search_param."%");
     $sql = "SELECT * FROM pages WHERE title LIKE :search_param";
