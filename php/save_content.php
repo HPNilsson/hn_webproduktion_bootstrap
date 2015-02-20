@@ -15,3 +15,4 @@ if (isset($_REQUEST["page_data"])) {
 if (isset($_REQUEST["menu_link_data"])) {
 	echo(json_encode($cq->saveMenuLink($_REQUEST["menu_link_data"])));
 }
+

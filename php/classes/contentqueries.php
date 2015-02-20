@@ -8,7 +8,12 @@ class ContentQueries extends PDOHelper {
     unset($page_data[":path"]);
     $menu_data = $page_data["menuData"];
     unset($page_data["menuData"]);
-    $sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
+    $pic_data = $page_data["picData"];
+    unset($page_data["picData"]);
+
+
+    $sql = "INSERT INTO pages (title, body, user_id, img_id) VALUES (:title, :body, :user_id, :img_id)";
+    
     //since we are using prepared SQL statements, 
     //SQL and data is sent separately to the query method
     $this->query($sql, $page_data);
@@ -17,6 +22,20 @@ class ContentQueries extends PDOHelper {
     $result = $this->query($sql2);
     $pid = $result[0]["pid"];
 
+    $sql4 = "INSERT INTO images (title, path, user_id) VALUES (:title, :path, :user_id)";
+    $pic_data = array(
+    ":title" => $pic_data["title"],
+    ":path" => $pic_data["path"],
+    "user_id"=>$page_data[":user_id"]
+    );
+    $this->query($sql4, $pic_data);
+
+    $sql5 = "SELECT iid FROM images ORDER BY uploaded DESC LIMIT 1";
+    $iid = $this->query($sql5);
+    $new_iid = $iid[0]["iid"];
+    $page_data[":img_id"]=$new_iid;
+    
+    
     $url_data = array(
       ":path" => $page_path,
       ":pid" => $pid,
@@ -29,6 +48,10 @@ class ContentQueries extends PDOHelper {
     }
     return true;
   }
+
+
+
+
 
   public function saveMenuLink($menu_data) {
     $menu_data[":plid"] = $menu_data[":plid"] ? $menu_data[":plid"] : null;

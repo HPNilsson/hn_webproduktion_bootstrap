@@ -32,6 +32,18 @@ function createSelect(data){
 	$('.menuSelect').html(selectHtml);
 }
 
+function createImageSelect(data){
+	var selectHtml = $('<select class="form-control"/>');
+
+	for (var i = 0; i < data.length; i++) {
+		if (data[i].iid === null) {
+			var optionHtml = $('<option value="'+data[i].path+'">'+data[i].title+'</option>');
+			selectHtml.append(optionHtml);
+		}
+	}
+	$('.menuSelect2').html(selectHtml);
+}
+
 var staticMenuItems;
 function createMainMenu(data) {
 	var mainMenuHtml = $('<ul class="nav navbar-nav"/>');
