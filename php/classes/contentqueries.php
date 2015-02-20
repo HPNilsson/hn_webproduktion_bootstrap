@@ -34,7 +34,7 @@ class ContentQueries extends PDOHelper {
     $iid = $this->query($sql5);
     $new_iid = $iid[0]["iid"];
     $page_data[":img_id"]=$new_iid;
-    
+
     
     $url_data = array(
       ":path" => $page_path,
@@ -71,7 +71,7 @@ class ContentQueries extends PDOHelper {
     return $this ->query($sql);
   }
 
-  public function getAllImages() {
+  public function getAllMenuImages() {
     $sql = "SELECT * FROM images";
     return $this ->query($sql);
   }

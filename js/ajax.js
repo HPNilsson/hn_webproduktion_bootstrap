@@ -55,16 +55,10 @@ function getPageFromUrl(pageUrl) {
 function getMenuImages(whichMenuImage) {
 $.ajax({
 		url: "php/get_menuimages.php",
-		type: "post",
 		dataType: "json",
 		success: function(data) {
 			console.log("getting menu images! Yay! ", data);
-			if (whichMenuImage == "select") {
-				createSelect(data);
-			}
-			else {
-				createMainMenu(data);
-			}
+				createImageSelect(data);
 		},
 		error: function(data) {
 			console.log("error getting menu images... dammit ", data.responseText);
@@ -79,12 +73,8 @@ function getMenuLinks(whichMenu) {
 		dataType: "json",
 		success: function(data) {
 			console.log("getting menu links! Yay! ", data);
-			if (whichMenu == "select") {
 				createSelect(data);
-			}
-			else {
 				createMainMenu(data);
-			}
 		},
 		error: function(data) {
 			console.log("error getting menu links... darn ", data.responseText);

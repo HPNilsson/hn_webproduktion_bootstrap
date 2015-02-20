@@ -36,7 +36,13 @@ $(document).ready(function() {
 		return false;
 	});
 
-	function createSelect(data){
+	getMenuImages();
+
+});
+
+
+
+function createSelect(data){
 		var selectHtml = $('<select class="form-control"/>');
 		var topOptionHtml = $('<option value="">Top</option>');
 				selectHtml.append(topOptionHtml);
@@ -51,15 +57,22 @@ $(document).ready(function() {
 	}
 
 	function createImageSelect(data){
-		var selectHtml = $('<select class="form-control"/>');
+		var selectImgHtml = $('<select class="form-control"/>');
+
+		var imgSelectTop = $("<option>Select Image</option>");
+
+		imgSelectTop.data("imgData", {iid: null});
+		selectImgHtml.append(imgSelectTop);
 
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].iid === null) {
-				var optionHtml = $('<option value="'+data[i].path+'">'+data[i].title+'</option>');
-				selectHtml.append(optionHtml);
-			}
+	
+				var optionHtml = $('<option value="'+data[i].iid+'">'+data[i].title+'</option>');
+				optionHtml.data("imgData", data[i]);
+
+				selectImgHtml.append(optionHtml);
+			
 		}
-		$('.menuSelect2').html(selectHtml);
+		$('form .menuSelect2').html(selectImgHtml);
 	}
 
 	var staticMenuItems;
@@ -96,8 +109,3 @@ $(document).ready(function() {
 
 		console.log(mainMenuHtml.children().length);
 	}
-
-});
-
-
-
