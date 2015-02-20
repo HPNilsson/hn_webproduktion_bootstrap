@@ -18,66 +18,7 @@ function insertNewPage(adminFormData) {
 	});
 }
 
-function createSelect(data){
-	var selectHtml = $('<select class="form-control"/>');
-	var topOptionHtml = $('<option value="">Top</option>');
-			selectHtml.append(topOptionHtml);
 
-	for (var i = 0; i < data.length; i++) {
-		if (data[i].plid === null) {
-			var optionHtml = $('<option value="'+data[i].mlid+'">'+data[i].title+'</option>');
-			selectHtml.append(optionHtml);
-		}
-	}
-	$('.menuSelect').html(selectHtml);
-}
-
-function createImageSelect(data){
-	var selectHtml = $('<select class="form-control"/>');
-
-	for (var i = 0; i < data.length; i++) {
-		if (data[i].iid === null) {
-			var optionHtml = $('<option value="'+data[i].path+'">'+data[i].title+'</option>');
-			selectHtml.append(optionHtml);
-		}
-	}
-	$('.menuSelect2').html(selectHtml);
-}
-
-var staticMenuItems;
-function createMainMenu(data) {
-	var mainMenuHtml = $('<ul class="nav navbar-nav"/>');
-
-	while (data.length > 0) {
-		var linkItem = data[0];
-		var parentId = linkItem.plid;
-		var htmlParent = mainMenuHtml.find('[data-mlid="'+parentId+'"]');
-		if (parentId && htmlParent.length === 0) {
-			data.push(data.shift());
-			continue;
-		}
-		else {
-			if (!parentId) {
-				mainMenuHtml.append('<li data-mlid="'+linkItem.mlid+'"><a href="'+linkItem.path+'">'+linkItem.title+'</a></li>');
-			}
-			else {
-				if (htmlParent.children('ul').length === 0) {
-					htmlParent.addClass('dropdown');
-					htmlParent.append('<ul class="dropdown-menu"/>');
-				}
-				mainMenuHtml.find('[data-mlid="'+parentId+'"] > ul').append('<li data-mlid="'+linkItem.mlid+'"><a href="'+linkItem.path+'">'+linkItem.title+'</a></li>');
-			}
-			data.shift();
-		}
-	}
-
-	if(!staticMenuItems){staticMenuItems = $('header nav .navbar-nav').children('li');}
-	$('header nav .navbar-collapse .navbar-nav').not(".navbar-right").remove();
-	$('header nav .navbar-collapse').prepend(mainMenuHtml);
-	//$('header nav .navbar-nav').append(staticMenuItems);
-
-	console.log(mainMenuHtml.children().length);
-}
 
 function getPageFromUrl(pageUrl) {
 	if(!pageUrl){return;}
