@@ -17,7 +17,8 @@ $(document).ready(function() {
 		var adminFormData = {
 			":title": $(this).find("#page_title").val(),
 			":path": $(this).find("#page_url").val(),
-			":body": $(this).find("#page_body").val()
+			":body": $(this).find("#page_body").val(),
+			":iid": $(this).find(".menuSelect2 select :selected").val()
 		};
 		
 			adminFormData.menuData = {
@@ -26,9 +27,6 @@ $(document).ready(function() {
 			":plid": $(this).find(".menuSelect select :selected").val()
 			};
 		
-			adminFormData.menuImageData = {
-				":iid": $(this).find(".menuSelect2 select : selected").val(),
-			};
 
 		insertNewPage(adminFormData);
 
@@ -59,7 +57,7 @@ function createSelect(data){
 	function createImageSelect(data){
 		var selectImgHtml = $('<select class="form-control"/>');
 
-		var imgSelectTop = $("<option>Select Image</option>");
+		var imgSelectTop = $("<option value=''>Select Image</option>");
 
 		imgSelectTop.data("imgData", {iid: null});
 		selectImgHtml.append(imgSelectTop);

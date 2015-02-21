@@ -8,8 +8,9 @@ class ContentQueries extends PDOHelper {
     unset($page_data[":path"]);
     $menu_data = $page_data["menuData"];
     unset($page_data["menuData"]);
-    $pic_data = $page_data["picData"];
-    unset($page_data["picData"]);
+
+    $page_data[":img_id"] = $page_data[":img_id"] ?
+      $page_data["img_id"] : null;
 
 
     $sql = "INSERT INTO pages (title, body, user_id, img_id) VALUES (:title, :body, :user_id, :img_id)";

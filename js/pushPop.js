@@ -78,7 +78,7 @@ function pushPopListeners() {
     var l = location.href;
     //might need to change this
     var pageName = l.substring(l.lastIndexOf("/")+1);
-alert(pageName);
+// alert(pageName);
     // if no pageName set pageName to false
     pageName = pageName || false;
     console.log("pageName: ", pageName);
