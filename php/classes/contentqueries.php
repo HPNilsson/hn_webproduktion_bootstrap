@@ -9,11 +9,11 @@ class ContentQueries extends PDOHelper {
     $menu_data = $page_data["menuData"];
     unset($page_data["menuData"]);
 
-    $page_data[":img_id"] = $page_data[":img_id"] ?
-      $page_data["img_id"] : null;
+    $page_data[":iid"] = $page_data[":iid"] ?
+      $page_data["iid"] : null;
 
 
-    $sql = "INSERT INTO pages (title, body, user_id, img_id) VALUES (:title, :body, :user_id, :img_id)";
+    $sql = "INSERT INTO pages (title, body, user_id, img_id) VALUES (:title, :body, :user_id, :iid)";
     
     //since we are using prepared SQL statements, 
     //SQL and data is sent separately to the query method
