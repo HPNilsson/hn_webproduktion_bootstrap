@@ -90,7 +90,18 @@ class ContentQueries extends PDOHelper {
     
     $sql = "SELECT pages.*, users.name AS author FROM url_alias, pages, users WHERE url_alias.path = :path && pages.pid = url_alias.pid && users.uid = pages.user_id;";
 
-    return $this->query($sql, $url);
+    $result = $this->query($sql, $url);
+
+    if($result[0]["img_id"] !== null) {
+      $sql2 = "SELECT * FROM images WHERE iid = :img_id";
+      $image_param = array(":img_id" => $result[0]["img_id"]);
+      $img_result = $this->query($sql2, $image_param);
+
+      $result[0]["image_data"] = $img_result[0];
+    }
+
+
+    return $result;
   }
 
   public function saveNewAlias($url_data) {
